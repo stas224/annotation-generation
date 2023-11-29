@@ -46,4 +46,5 @@ def generate_response(text):
     for i in range(len(texts)):
         for symbol in []:
             texts[i] = texts[i].replace(symbol, "")
+        texts[i] = texts[i][texts[i].rfind(".") + 1]
     return texts
