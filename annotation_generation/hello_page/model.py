@@ -47,4 +47,3 @@ def generate_response(text):
         for symbol in []:
             texts[i] = texts[i].replace(symbol, "")
     return texts
-
