@@ -24,9 +24,9 @@ def generate(
     return list(map(tok.decode, out))
 
 
-def generate_model_response(text, num_beams=2, max_lenght=192):
+def generate_model_response(text, num_beams=2, max_length=192):
     tokenizer, model = load_tokenizer_and_model("sberbank-ai/rugpt3small_based_on_gpt2")
-    return generate(model, tokenizer, text, max_lenght=max_lenght, num_beams=num_beams)[0]
+    return generate(model, tokenizer, text, max_length=max_length, num_beams=num_beams)[0]
 
 
 def generate_annotation(text):
@@ -37,13 +37,13 @@ def generate_annotation(text):
 
 def generate_plan(text):
     text = f"{text}. Суть работы: "
-    response = generate_model_response(text, max_lenght=96)
+    response = generate_model_response(text, max_length=96)
     return response.replace(text, "")
 
 
 def generate_response(text):
     texts = [generate_annotation(text), generate_plan(text)]
-    for i in range(texts):
+    for i in range(len(texts)):
         for symbol in []:
             texts[i] = texts[i].replace(symbol, "")
     return texts
