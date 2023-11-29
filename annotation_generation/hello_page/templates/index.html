@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Генерация анотации и введения для КНИР</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            padding-top: 50px;
+        }
+
+        .custom_color {
+            background-color: #f0f0fa;
+        }
+
+    </style>
+</head>
+
+<body class="container">
+
+    <h2 class="mt-5 mb-4">Генерация анотации и введения для КНИР</h2>
+
+    <form method="post" class="mb-4">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="inputText">Введите тему:</label>
+            <input type="text" id="inputText" name="input_text" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Получить результат</button>
+    </form>
+
+    {% if output_text %}
+        <div class="card custom_color mb-3">
+            <div class="card-body">
+                <h5 class="card-title">Ответ модели:</h5>
+                <p class="card-text">{{ output_text }}</p>
+            </div>
+        </div>
+    {% endif %}
+
+</body>
+</html>
