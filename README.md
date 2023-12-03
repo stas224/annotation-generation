@@ -2,6 +2,9 @@
 
 This application generates an introduction for term papers on a given topic (only Ru)
 
+Example of how the app works:
+![photo.png](https://im.wampi.ru/2023/12/03/photo.png)
+
 Steps required to run:
 1. create venv:
 ```sh
